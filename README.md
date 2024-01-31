@@ -4,7 +4,7 @@
 
 - Naturellement, il faut avoir un sous-domaine qui pointe vers l'IP publique de la machine host
 
-- Dans l'exemple nous testerons avec **vista.ratsima.me** qui pointe sur ma machine 
+- Dans l'exemple nous testerons avec **ratsima.me** qui pointe sur ma machine 
 
 
 ## Démarrer le site web temporaire
@@ -27,49 +27,35 @@
     docker-compose up -d
     ``` 
 
-- Tester que le site est bien accessible via **http://vista.ratsima.me**
+- Tester que le site est bien accessible via **http://ratsima.me**
 
-    > **Attention** : Remplacer `vista.ratsima.me` par le sous-domaine cible
-
-    <img src="assets/temporary-live.png" alt="temporary-live.png" width="750"/>
+    > **Attention** : Remplacer `ratsima.me` par le sous-domaine cible
 
 ## Générer les certificats :
 
 - Déployer le conteneur **factory**, en ouvrant un terminal dans le répertoire, puis en exécutant la commande  la commande suivante
 
     ```bash
-    docker-compose run certbot certonly -d vista.ratsima.me --webroot-path=/data/letsencrypt
+    docker-compose run certbot certonly -d ratsima.me --webroot-path=/data/letsencrypt
     ```
-    > **Attention** : Remplacer `vista.ratsima.me` par le sous-domaine cible
-
-- Voici le résultat :
-
-    <!-- ![factory-run-certbot-1](assets/factory-run-certbot-1.png) -->
-    <img src="assets/factory-run-certbot-1.png" alt="factory-run-certbot-1" width="750"/>
+    > **Attention** : Remplacer `ratsima.me` par le sous-domaine cible
 
 - Choisir la methode 2
 
 - Accepter les conditions et renseigner le mail de l'admin
 
 
-- Voici la fin des logs
-
-    <!-- ![factory-run-certbot-2](assets/factory-run-certbot-2.png) -->
-    <img src="assets/factory-run-certbot-2.png" alt="factory-run-certbot-2" width="750"/>
-
 ## Localisation des certificats générés
 
 - *Cerbot* aura écrit les éléments du certificat dans le dossier `factory/etc-letsencrypt`
-    <img src="assets/factory-certbot-result.png" alt="factory-certbot-result" width="450"/>
-
 
 - A ce stade le site web temporaire n'est plus utile ; arrêter le conteneur.
 
 ## Transfert des éléments du certificat vers l'appli de production
 
-- Copier le dossier `factory/etc-letsencrypt/live/vista.ratsima.me/` vers `production/vista.ratsima.me/`
+- Copier le dossier `factory/etc-letsencrypt/live/ratsima.me/` vers `production/ratsima.me/`
 
-- Copier le dossier `factory/etc-letsencrypt/archive/vista.ratsima.me/` vers `production/archive/`
+- Copier le dossier `factory/etc-letsencrypt/archive/ratsima.me/` vers `production/archive/`
 
 ## Démarrer l'appli de production
 
@@ -84,10 +70,6 @@
     > FROM arm64v8/php:7.2-apache
     >``` 
 
-- Démarrer le conteneur ; ci-dessous le log
-
-    <img src="assets/production-compose-up.png" alt="production-compose-up" width="750"/>
+- Démarrer le conteneur
 
 - Tester l'instance
-
-    <img src="assets/production-live.png" alt="production-live" width="750"/>
