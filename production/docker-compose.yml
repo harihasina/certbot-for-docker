@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  production:
+    container_name: 'production'
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    image: application
+    volumes:
+      - ./html:/var/www/html
+    ports:
+      - 2480:80
+      - 443:443
