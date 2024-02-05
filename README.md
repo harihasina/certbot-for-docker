@@ -2,7 +2,7 @@
 
 ## Conditions préalables
 
-- Naturellement, il faut avoir un sous-domaine qui pointe vers l'IP publique de la machine host
+- Naturellement, il faut avoir un sous-domaine qui pointe vers l'IP publique de la machine host.
 
 - Dans l'exemple nous testerons avec **ratsima.me** qui pointe sur ma machine 
 
