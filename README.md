@@ -1,6 +1,6 @@
 # Instructions
 
-## Préalable
+## Conditions préalables
 
 - Naturellement, il faut avoir un sous-domaine qui pointe vers l'IP publique de la machine host
 
